@@ -3,6 +3,7 @@ import CarouselCard from '../components/CarouselCard.js';
 import CardMedia from '@material-ui/core/CardMedia';
 import hike from '../images/hike.jpg';
 import './App.css';
+import Searchbar from "../components/Searchbar";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         img={hike}
         id={1}
        />
+       <Searchbar/>
     </div>
   );
 }
