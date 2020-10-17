@@ -23,7 +23,7 @@ export default function TaskPage(props) {
 
   return (
     <div>
-      {`New Page for ${id}`}
+      New Page for asdfadfasdfasdf
     </div>
   );
 }
