@@ -1,14 +1,22 @@
-import React, {Component} from 'react';
-import './index.css';
+import React, {} from 'react';
+import TextField from '@material-ui/core/TextField'
+import { makeStyles } from '@material-ui/core/styles';
 
-class Searchbar extends Component {
-    constructor(props) {
-        super(props);
-    }
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        },
+    },
+}));
 
-    render() {
-        return <input type="text" id="searchBar" placeholder="Search"/>;
-    }
+export default function Searchbar() {
+    const classes = useStyles();
+
+    return (
+        <form className={classes.root} noValidate autoComplete="off">
+            <TextField id="searchbar" label="Search" variant="outlined" />
+        </form>
+    );
 }
-
-export default Searchbar;
