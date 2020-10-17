@@ -12,7 +12,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "prop-types": "latest",
-    "@material-ui/styles": "latest",
+    "@material-ui/styles": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
