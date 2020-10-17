@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import CarouselCard from '../components/CarouselCard.js';
 import ComponentGrid from "../components/ComponentGrid";
-import CardMedia from '@material-ui/core/CardMedia';
 import hike from '../images/hike.jpg';
 import './App.css';
 import Searchbar from "../components/Searchbar";
