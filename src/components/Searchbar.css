@@ -1,0 +1,11 @@
+.search {
+    width: 80%;
+    justify-content: center;
+    outline: black 1px solid;
+    display: flex;
+}
+
+#searchbar {
+    width: max-content;
+    align-self: center;
+}
