@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import TaskPageHandler from "./pages/TaskPage.js";
+import TaskPageHandler from "./pages/TaskPageHandler.js";
 import HomePage from "./pages/HomePage.js";
+import NotFound from "./pages/NotFound.js";
 import AddPage from "../components/AddPage";
 
 // App.js
@@ -18,6 +19,7 @@ class App extends Component {
               <TaskPageHandler routerProps={routerProps}/>
             )}
           />
+          <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     );

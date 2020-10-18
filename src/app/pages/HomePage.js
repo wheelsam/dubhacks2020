@@ -8,7 +8,10 @@ import './HomePage.css';
 import Searchbar from "../../components/Searchbar";
 import Carousel from "../../components/Carousel";
 import AddButton from "../../components/AddButton";
+import { Route } from "react-router-dom";
 import {Link} from "react-router-dom";
+
+
 
 class HomePage extends Component {
 
