@@ -2,13 +2,19 @@ import React from 'react';
 import "./TaskPage.css";
 import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import logo from "../../images/logo.jpg";
 
 const TaskPage = (props) => {
   return (
     <div className="Overall">
-        <Link to="/">
-            <Button variant="contained" color="primary">Back</Button>
-        </Link>
+        <div className="Header">
+            <img className="TaskLogo" src={logo} alt="Logo" />
+            <div className="BackContainer">
+                <Link to="/">
+                    <Button className="Back" variant="contained" color="primary">Back</Button>
+                </Link>
+            </div>
+        </div>
       <p className="PageTitle">
           {props.title}
       </p>
