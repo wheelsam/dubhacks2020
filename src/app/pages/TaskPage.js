@@ -10,7 +10,7 @@ const TaskPage = (props) => {
       <p>
         Description: {props.description}
       </p>
-      <img src={props.imageurl}/>
+      <img src={props.imageurl} alt={props.title}/>
     </div>
   );
 }

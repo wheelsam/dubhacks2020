@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import CarouselCard from '../../components/CarouselCard.js';
 import ComponentGrid from "../../components/ComponentGrid";
 import Profile from "../../components/Profile"
-import hike from '../../images/hike.jpg';
+//import hike from '../../images/hike.jpg';
 import crochet from '../../images/crochet.jpg'
 import './HomePage.css';
 import Searchbar from "../../components/Searchbar";
