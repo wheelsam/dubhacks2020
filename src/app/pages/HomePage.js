@@ -10,6 +10,7 @@ import Carousel from "../../components/Carousel";
 import AddButton from "../../components/AddButton";
 //import { Route } from "react-router-dom";
 import {Link} from "react-router-dom";
+import UserData from "../../data/User.json"
 import ActivitiesData from "../../data/ActivitiesData.json"
 
 
@@ -71,7 +72,7 @@ class HomePage extends Component {
             <div>
                 <div className={"Header"}>
                     <Searchbar onChange={this.updateSearch}/>
-                    <Profile/>
+                    <Profile user={UserData.username}/>
                 </div>
                 <ComponentGrid carousels={carousels}/>
                 <Link to="/add">
