@@ -3,7 +3,23 @@
     flex-direction: column;
 }
 
+.PageTitle {
+    margin: 10px;
+    width: 80vw;
+    font-size: calc(20px + 4vw);
+    align-self: center;
+    text-align: center;
+}
+
+.Description {
+    margin: 40px;
+    width: 80vw;
+    font-size: calc(5px + 1vw);
+    align-self: center;
+}
+
 .Image {
     align-self: center;
     width: 80vw;
+    outline: 3px solid black;
 }
