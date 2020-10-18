@@ -8,10 +8,7 @@ import './HomePage.css';
 import Searchbar from "../../components/Searchbar";
 import Carousel from "../../components/Carousel";
 import AddButton from "../../components/AddButton";
-import { Route } from "react-router-dom";
-import TaskPage from './TaskPage.js';
-
-
+import {Link} from "react-router-dom";
 
 class HomePage extends Component {
 
@@ -19,19 +16,12 @@ class HomePage extends Component {
         super(props);
         this.state = {
             searchString: "",
-            add: false
         }
     }
 
     updateSearch = (value) => {
         this.setState({
             searchString: value
-        });
-    };
-
-    addContent = () => {
-        this.setState({
-            add: true
         });
     };
 
@@ -79,7 +69,9 @@ class HomePage extends Component {
                     id={1}
                 />
                 <ComponentGrid carousels={carousels}/>
-                <AddButton />
+                <Link to="/add">
+                    <AddButton />
+                </Link>
             </div>
         );
     }
