@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import TaskPageHandler from "./pages/TaskPageHandler.js";
 import HomePage from "./pages/HomePage.js";
 import NotFound from "./pages/NotFound.js";
-import AddPage from "../components/AddPage";
+import AddPage from "./pages/AddPage";
 import ProfilePage from "../components/ProfilePage";
 import './App.css'
 

@@ -3,7 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
-import firebase from "./Firebase/firebase.js";
+import firebase from "../../components/Firebase/firebase.js"
 import "./AddPage.css";
 
 let categories = [
