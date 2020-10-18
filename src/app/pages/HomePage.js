@@ -81,7 +81,12 @@ class HomePage extends Component {
       const carousels = [];
       for (let category in dict) {
           if (category.toLowerCase().startsWith(this.state.searchString.toLowerCase())) {
-              carousels.push(<Carousel key={category} title={category.charAt(0).toUpperCase() + category.slice(1)} cards={dict[category]}/>);
+              carousels.push(
+                <div>
+                  <hr />
+                  <Carousel key={category} title={category.charAt(0).toUpperCase() + category.slice(1)} cards={dict[category]}/>
+                </div>
+              );
           }
       }
 
@@ -106,7 +111,9 @@ class HomePage extends Component {
           }
       } else {
           display.push(
-              <ComponentGrid carousels={carousels}/>
+              <div>
+                <ComponentGrid carousels={carousels}/>
+              </ div>
           );
       }
       return (
