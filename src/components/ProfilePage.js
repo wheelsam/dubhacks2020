@@ -13,12 +13,15 @@ class ProfilePage extends Component {
         }
     }
 
+    // Updates the username in this components state
     handleUsernameChange = (event) => {
         this.setState({
             Username: event.target.value
         })
     };
 
+    // Checks to make sure the input is good. Updates username in App if it is good.
+    // Shows an error message if the input is bad.
     handleSubmitButton = () => {
         let good = true;
         if (this.state.Username === "") {
@@ -45,6 +48,7 @@ class ProfilePage extends Component {
         }
     };
 
+    // Renders a profile input page
     render() {
         return (
             <div>

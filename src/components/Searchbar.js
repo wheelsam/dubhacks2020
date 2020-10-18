@@ -11,11 +11,13 @@ class Searchbar extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    // Sets the state when user types
     handleChange(event) {
         this.setState({value: event.target.value});
         this.props.onChange(event.target.value);
     };
 
+    // Renders a styled search bar
     render() {
         return (
             <StylesProvider injectFirst>
