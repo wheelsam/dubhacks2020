@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import CarouselCard from '../../components/CarouselCard.js';
 import ComponentGrid from "../../components/ComponentGrid";
 import Profile from "../../components/Profile"
+import hike from '../../images/hike.jpg';
+import crochet from '../../images/crochet.jpg'
 import './HomePage.css';
 import Searchbar from "../../components/Searchbar";
 import Carousel from "../../components/Carousel";
@@ -19,6 +21,7 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
         this.ref = firebase.firestore().collection('activities');
+        console.log(this.ref);
         this.unsubscribe = null;
         this.state = {
             searchString: "",
@@ -29,13 +32,14 @@ class HomePage extends Component {
     onCollectionUpdate = (querySnapshot) => {
       const cards = [];
       querySnapshot.forEach((doc) => {
-        const { title, description, category } = doc.data();
+        const { title, description, categories, imageurl } = doc.data();
         cards.push({
           key: doc.id,
           doc, // DocumentSnapshot
           title,
           description,
-          author,
+          categories,
+          imageurl,
         });
       });
       this.setState({
@@ -54,46 +58,41 @@ class HomePage extends Component {
         });
     };
 
-    createCarouselCards(tag) {
-        let activities = ActivitiesData.activities;
-        let cards = [];
-        let id = 0;
-        for (let i = 0; i < 10; i++) {
-            let thisActivity = activities[id];
-            try {
-                while (!thisActivity.categories.includes(tag)) {
-                    id++;
-                    thisActivity = activities[id];
-                }
-            } catch (e) {
-                return cards;
-            }
-            cards.push(
-                <CarouselCard
-                    title = {thisActivity.title}
-                    description={thisActivity.description}
-                    img={thisActivity.imageurl}
-                    id={id}
-                />
-            );
-            id++;
-        }
-        return cards;
-    }
-
     render() {
-        const carousels = [];
+      let activities = ActivitiesData.activities;
 
-        //Hiking carousel
-        let cards = this.createCarouselCards("hiking");
-        carousels.push(<Carousel title={"Hikes"} cards={cards}/>);
+      const craftCards = [];
+      this.state.cards.map(card => {
+        if (card.categories.includes("crafts")) {
+          craftCards.push(
+              <CarouselCard
+                  title={card.title}
+                  description={card.description}
+                  img={card.imageurl}
+                  id={card.key}
+              />
+          );
+        }
+      });
 
-        cards = this.createCarouselCards("crafts");
-        carousels.push(<Carousel title={"Crafts"} cards={cards}/>);
+      //Hiking carousel
+      const outdoorCards = [];
+      this.state.cards.map(card => {
+        if (card.categories.includes("hiking")) {
+          outdoorCards.push(
+              <CarouselCard
+                  title={card.title}
+                  description={card.description}
+                  img={card.imageurl}
+                  id={card.key}
+              />
+          );
+        }
+      });
 
-        cards = this.createCarouselCards("sports");
-        carousels.push(<Carousel title={"Sports"} cards={cards}/>);
-
+      const carousels = [];
+      carousels.push(<Carousel title={"Outdoors"} cards={outdoorCards}/>);
+      carousels.push(<Carousel title={"Crafts"} cards={craftCards}/>);
         return (
             <div>
                 <div className={"Header"}>

@@ -1,6 +1,7 @@
-import firebase from 'firebase';
+import * as firebase from "firebase/app";
+import "firebase/firestore";
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDSf6F011SEh2QM3dPHhiHWJj_9sSkR8Gw",
   authDomain: "dubhacks-2020-1edf9.firebaseapp.com",
   databaseURL: "https://dubhacks-2020-1edf9.firebaseio.com",
@@ -12,3 +13,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+console.log(firebase.app().name);
+
+export default firebase;
