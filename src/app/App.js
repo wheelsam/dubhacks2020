@@ -8,6 +8,7 @@ import './App.css';
 import Searchbar from "../components/Searchbar";
 import Carousel from "../components/Carousel";
 import AddButton from "../components/AddButton";
+import AddPage from "../components/AddPage";
 
 const craftCards = [];
 for (let i = 1; i < 11; i++) {
@@ -69,6 +70,7 @@ class App extends Component {
                 />
                 <ComponentGrid carousels={carousels}/>
                 <AddButton />
+                <AddPage />
             </div>
         );
     }
