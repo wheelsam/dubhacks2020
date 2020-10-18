@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import CarouselCard from '../../components/CarouselCard.js';
 import ComponentGrid from "../../components/ComponentGrid";
 import Profile from "../../components/Profile"
-import hike from '../../images/hike.jpg';
-import crochet from '../../images/crochet.jpg'
 import './HomePage.css';
 import Searchbar from "../../components/Searchbar";
 import Carousel from "../../components/Carousel";
@@ -11,7 +9,6 @@ import AddButton from "../../components/AddButton";
 //import { Route } from "react-router-dom";
 import {Link} from "react-router-dom";
 import UserData from "../../data/User.json"
-import ActivitiesData from "../../data/ActivitiesData.json"
 import firebase from "../../components/Firebase/firebase.js"
 
 
@@ -59,8 +56,6 @@ class HomePage extends Component {
     };
 
     render() {
-      let activities = ActivitiesData.activities;
-
       const craftCards = [];
       this.state.cards.map(card => {
         if (card.categories.includes("crafts")) {

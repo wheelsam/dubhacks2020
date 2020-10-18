@@ -1,0 +1,9 @@
+.Overall {
+    display: flex;
+    flex-direction: column;
+}
+
+.Image {
+    align-self: center;
+    width: 80vw;
+}
