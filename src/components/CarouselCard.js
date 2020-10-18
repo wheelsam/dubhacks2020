@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Route } from "react-router-dom";
+import TaskPage from '../app/pages/TaskPage.js';
 
 const useStyles = makeStyles({
   root: {
@@ -36,7 +37,7 @@ export default function CarouselCard(props, match) {
   return (
     <div>
       <Card className={classes.root}>
-        <CardActionArea component={RouterLink} to={`/actvity/${id}`}>
+        <CardActionArea component={RouterLink} to={`/activity/${id}`}>
           <CardMedia
             className={classes.media}
             image={img}

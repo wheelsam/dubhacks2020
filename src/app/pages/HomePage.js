@@ -36,8 +36,6 @@ class HomePage extends Component {
     };
 
     render() {
-      console.log(this.props.match);
-      let match = this.props.match;
 
       const craftCards = [];
       for (let i = 1; i < 11; i++) {
@@ -60,13 +58,6 @@ class HomePage extends Component {
                       description="Mount Si: Washington State, 8 mile round trip hike with steep elevation gain.  Intermediate hike"
                       img={hike}
                       id={i}
-                  />
-                  <Route
-                    exact={true}
-                    path={`${match.url}/activity/:id`}
-                    render={(props) => (
-                      <TaskPage data="de" id={i} />
-                    )}
                   />
               </div>
           );
