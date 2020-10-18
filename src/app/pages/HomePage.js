@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import CarouselCard from '../../components/CarouselCard.js';
 import ComponentGrid from "../../components/ComponentGrid";
 import Profile from "../../components/Profile"
-import hike from '../../images/hike.jpg';
-import crochet from '../../images/crochet.jpg'
 import './HomePage.css';
 import Searchbar from "../../components/Searchbar";
 import Carousel from "../../components/Carousel";
@@ -56,44 +54,46 @@ class HomePage extends Component {
         });
     };
 
+    createCarouselCards(tag) {
+        let activities = ActivitiesData.activities;
+        let cards = [];
+        let id = 0;
+        for (let i = 0; i < 10; i++) {
+            let thisActivity = activities[id];
+            try {
+                while (!thisActivity.categories.includes(tag)) {
+                    id++;
+                    thisActivity = activities[id];
+                }
+            } catch (e) {
+                return cards;
+            }
+            cards.push(
+                <CarouselCard
+                    title = {thisActivity.title}
+                    description={thisActivity.description}
+                    img={thisActivity.imageurl}
+                    id={id}
+                />
+            );
+            id++;
+        }
+        return cards;
+    }
+
     render() {
-      let activities = ActivitiesData.activities;
+        const carousels = [];
 
-      const craftCards = [];
-      for (let i = 10; i < 20; i++) {
-          craftCards.push(
-              <CarouselCard
-                  title="Crochet"
-                  description="Crochet Stuff"
-                  img={crochet}
-                  id={i}
-              />
-          );
-      }
+        //Hiking carousel
+        let cards = this.createCarouselCards("hiking");
+        carousels.push(<Carousel title={"Hikes"} cards={cards}/>);
 
-      //Hiking carousel
-      const hikeCards = [];
-      let id = 0;
-      for (let i = 0; i < 10; i++) {
-          let thisActivity = activities[id];
-          while(!thisActivity.categories.includes("hiking")) {
-              id++;
-              thisActivity = activities[id];
-          }
-          hikeCards.push(
-              <CarouselCard
-                  title = {thisActivity.title}
-                  description={thisActivity.description}
-                  img={thisActivity.imageurl}
-                  id={id}
-              />
-          );
-          id++;
-      }
+        cards = this.createCarouselCards("crafts");
+        carousels.push(<Carousel title={"Crafts"} cards={cards}/>);
 
-      const carousels = [];
-      carousels.push(<Carousel title={"Hikes"} cards={hikeCards}/>);
-      carousels.push(<Carousel title={"Crafts"} cards={craftCards}/>);
+        cards = this.createCarouselCards("sports");
+        carousels.push(<Carousel title={"Sports"} cards={cards}/>);
+
         return (
             <div>
                 <div className={"Header"}>
