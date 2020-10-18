@@ -6,6 +6,7 @@ import Chip from '@material-ui/core/Chip';
 import {Link} from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import firebase from "../../components/Firebase/firebase.js"
+import Chip from '@material-ui/core/Chip';
 import "./AddPage.css";
 
 let categories = [
