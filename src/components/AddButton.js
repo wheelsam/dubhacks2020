@@ -7,7 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
-            margin: theme.spacing(1)
+            margin: "17px",
         },
     },
     extendedIcon: {
@@ -20,7 +20,7 @@ export default function FloatingActionButtons() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Fab color="primary" aria-label="add">
+            <Fab size="small" color="secondary" aria-label="add">
                 <AddIcon />
             </Fab>
         </div>
