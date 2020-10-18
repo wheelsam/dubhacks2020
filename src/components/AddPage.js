@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-import {Category} from "@material-ui/icons";
+import {Link} from "react-router-dom";
 
 let categories = [
     {
@@ -57,6 +57,11 @@ class AddPage extends Component {
     render() {
         return (
             <div>
+                <Link to="/">
+                    <button>
+                        Back
+                    </button>
+                </Link>
                 <form className={'search'} noValidate autoComplete="off">
                     <TextField id="Title"
                                label="Title"
