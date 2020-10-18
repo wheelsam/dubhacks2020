@@ -3,9 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import { Link as RouterLink} from 'react-router-dom';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { Route } from "react-router-dom";
+import TaskPage from '../app/pages/TaskPage.js';
 
 const useStyles = makeStyles({
   root: {
@@ -20,7 +23,7 @@ const useStyles = makeStyles({
 
 export default function CarouselCard(props, match) {
   const classes = useStyles();
-  const {title, description, img, id/*, pageData*/} = props;
+  const {title, description, img, id, pageData} = props;
 
     /* Create an array of `<li>` items for each product */
   // const linkList = productsData.map((product) => {
@@ -38,7 +41,7 @@ export default function CarouselCard(props, match) {
           <CardMedia
             className={classes.media}
             image={img}
-            title="Contemplative Reptile"
+            title={title}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
