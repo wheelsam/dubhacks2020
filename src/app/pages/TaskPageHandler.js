@@ -4,6 +4,7 @@ import React from 'react';
 //import { Link as RouterLink} from 'react-router-dom';
 import TaskPage from './TaskPage.js';
 import NotFound from './NotFound.js';
+import LoadPage from "./LoadPage";
 import firebase from "../../components/Firebase/firebase.js"
 
 class TaskPageHandler extends React.Component {
@@ -12,7 +13,8 @@ class TaskPageHandler extends React.Component {
       this.ref = firebase.firestore().collection('activities');
       this.state = {
           thisActivity: null,
-          isValid: false
+          isValid: false,
+          isLoaded: false
       }
   }
 
@@ -26,20 +28,43 @@ class TaskPageHandler extends React.Component {
       if (doc.exists) {
         this.setState({
           isValid: true,
+          isLoaded: true,
           thisActivity: doc.data(),
         });
+      } else {
+          this.setState({
+              isLoaded: true,
+          });
       }
   }
 
   render() {
+      let display = [];
+      if (!this.state.isLoaded) {
+          display.push(
+              <div>
+                  <LoadPage />
+              </div>
+          )
+      } else if (!this.state.isValid){
+          display.push(
+              <div>
+                  <NotFound />
+              </div>
+          )
+      } else {
+          display.push(
+              <TaskPage
+                  id={this.state.thisActivity.key}
+                  title={this.state.thisActivity.title}
+                  description={this.state.thisActivity.description}
+                  imageurl={this.state.thisActivity.imageurl}/>
+          )
+      }
+      console.log({display})
     return (
       <div>
-          { this.state.isValid ? <TaskPage
-                                    id={this.state.thisActivity.key}
-                                    title={this.state.thisActivity.title}
-                                    description={this.state.thisActivity.description}
-                                    imageurl={this.state.thisActivity.imageurl}/>
-                               : <NotFound /> }
+          {display}
       </div>
     );
   }
