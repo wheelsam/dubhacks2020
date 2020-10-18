@@ -14,7 +14,7 @@ const TaskPageHandler = (props) => {
 
   return (
     <div>
-        { isValid ? <TaskPage id={activityId} title={thisActivity.title} description={thisActivity.description}/> : <NotFound /> }
+        { isValid ? <TaskPage id={activityId} title={thisActivity.title} description={thisActivity.description} imageurl={thisActivity.imageurl}/> : <NotFound /> }
     </div>
   );
 }
