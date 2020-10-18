@@ -10,6 +10,7 @@ import AddButton from "../../components/AddButton";
 import {Link} from "react-router-dom";
 import UserData from "../../data/User.json"
 import firebase from "../../components/Firebase/firebase.js"
+import logo from '../../images/logo.jpg'
 
 
 
@@ -85,6 +86,7 @@ class HomePage extends Component {
       return (
           <div>
               <div className={"Header"}>
+                  <img className={"Logo"} src={logo} alt="Logo" />
                   <Searchbar onChange={this.updateSearch}/>
                   <Profile user={UserData.username}/>
               </div>

@@ -10,9 +10,6 @@ class Profile extends Component {
                 <Link to="/profile">
                     <img className={"Profile"} src={profile} alt="Profile"/>
                 </Link>
-                <p>
-                    {this.props.user}
-                </p>
             </div>
         );
     }

@@ -1,5 +1,17 @@
 .Header {
     display: flex;
-    background-color: #fed8b1;
+    background-color: #dedede;
     opacity: .75;
+    height: 74px;
+}
+
+.Logo {
+    margin: 15px 15px;
+    height: 44px;
+}
+
+@media only screen and (max-width: 728px) {
+    .Logo {
+        display: none;
+    }
 }
