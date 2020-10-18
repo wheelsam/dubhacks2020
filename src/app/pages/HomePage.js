@@ -62,10 +62,10 @@ class HomePage extends Component {
       this.state.cards.forEach(card => {
         if (card.categories) {
           card.categories.forEach(function (item, index) {
-            if (!(item in dict)) {
-              dict[item] = [];
+            if (!(item.toLowerCase() in dict)) {
+              dict[item.toLowerCase()] = [];
             }
-            dict[item].push(
+            dict[item.toLowerCase()].push(
               <CarouselCard
                   title={card.title}
                   description={card.description}
