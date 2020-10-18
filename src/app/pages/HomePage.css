@@ -1,4 +1,5 @@
 .Header {
     display: flex;
-    background-color: #6C648B;
+    background-color: #fed8b1;
+    opacity: .75;
 }
