@@ -28,19 +28,21 @@ class HomePage extends Component {
         });
     };
 
-    render() {
-      let activities = ActivitiesData.activities;
-
-        //Crafts carousel
-        const craftCards = [];
+    createCarouselCards(tag) {
+        let activities = ActivitiesData.activities;
+        let cards = [];
         let id = 0;
         for (let i = 0; i < 10; i++) {
             let thisActivity = activities[id];
-            while(!thisActivity.categories.includes("crafts")) {
-                id++;
-                thisActivity = activities[id];
+            try {
+                while (!thisActivity.categories.includes(tag)) {
+                    id++;
+                    thisActivity = activities[id];
+                }
+            } catch (e) {
+                return cards;
             }
-            craftCards.push(
+            cards.push(
                 <CarouselCard
                     title = {thisActivity.title}
                     description={thisActivity.description}
@@ -50,30 +52,22 @@ class HomePage extends Component {
             );
             id++;
         }
+        return cards;
+    }
 
-      //Hiking carousel
-      const hikeCards = [];
-      id = 0;
-      for (let i = 0; i < 10; i++) {
-          let thisActivity = activities[id];
-          while(!thisActivity.categories.includes("hiking")) {
-              id++;
-              thisActivity = activities[id];
-          }
-          hikeCards.push(
-              <CarouselCard
-                  title = {thisActivity.title}
-                  description={thisActivity.description}
-                  img={thisActivity.imageurl}
-                  id={id}
-              />
-          );
-          id++;
-      }
+    render() {
+        const carousels = [];
 
-      const carousels = [];
-      carousels.push(<Carousel title={"Hikes"} cards={hikeCards}/>);
-      carousels.push(<Carousel title={"Crafts"} cards={craftCards}/>);
+        //Hiking carousel
+        let cards = this.createCarouselCards("hiking");
+        carousels.push(<Carousel title={"Hikes"} cards={cards}/>);
+
+        cards = this.createCarouselCards("crafts");
+        carousels.push(<Carousel title={"Crafts"} cards={cards}/>);
+
+        cards = this.createCarouselCards("sports");
+        carousels.push(<Carousel title={"Sports"} cards={cards}/>);
+
         return (
             <div>
                 <div className={"Header"}>
