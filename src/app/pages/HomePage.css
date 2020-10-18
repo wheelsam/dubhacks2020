@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.Username {
+    align-self: center;
+}
+
 .Logo {
     margin: 15px 15px;
     height: 44px;

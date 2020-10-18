@@ -27,6 +27,12 @@ class ProfilePage extends Component {
                 UsernameErrorText: "You must enter a username"
             })
             good = false;
+        } else if (this.state.Username.length > 13) {
+            this.setState({
+                UsernameError: true,
+                UsernameErrorText: "Please use a username of less than 14 characters"
+            });
+            good = false;
         } else {
             this.setState({
                 TitleError: false,
@@ -34,8 +40,8 @@ class ProfilePage extends Component {
             })
         }
         if (good === true) {
-            // This is where the username needs to be sent back to the homepage
-            this.props.history.push("/");
+            this.props.setUser(this.state.Username);
+            this.props.routerProps.history.push("/");
         }
     };
 

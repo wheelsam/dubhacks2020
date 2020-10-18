@@ -117,6 +117,9 @@ class HomePage extends Component {
                   <Link to="/add">
                       <AddButton />
                   </Link>
+                  <p className="Username">
+                      {this.props.user === ""? 'Sign in' : "Welcome, " + this.props.user}
+                  </p>
                   <Profile user={UserData.username}/>
               </div>
               <div className={"ScrollBody"}>

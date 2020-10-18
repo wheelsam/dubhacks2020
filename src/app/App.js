@@ -9,13 +9,30 @@ import './App.css'
 
 // App.js
 class App extends Component {
+
+  constructor (props) {
+    super(props);
+    this.state = ({
+      user: ""
+    });
+  }
+
+  setUser = (newUser) => {
+    this.setState({
+      user: newUser
+    });
+  }
+
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/"
+                 render={() => ( <HomePage user={this.state.user} /> )}
+          />
           <Route exact path="/add" component={AddPage} />
-          <Route exact path="/profile" component={ProfilePage}/>
+          <Route exact path="/profile" render={(routerProps) => ( <ProfilePage setUser={this.setUser} routerProps={routerProps}/> )}
+          />
           <Route
             path="/activity/:id"
             render={(routerProps) => (
