@@ -4,7 +4,6 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
 // Creates a custom theme style for consistent spacing
-
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
@@ -17,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // A function that exports an action button, used for creating new carousel cards.
-
 export default function FloatingActionButtons() {
     const classes = useStyles();
     return (

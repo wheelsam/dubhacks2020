@@ -121,9 +121,11 @@ class HomePage extends Component {
               <div className={"Header"}>
                   <img className={"Logo"} src={logo} alt="Logo" />
                   <Searchbar onChange={this.updateSearch}/>
-                  <Link to="/add">
-                      <AddButton />
-                  </Link>
+                  <div className="AddButton">
+                      <Link to="/add">
+                          <AddButton />
+                      </Link>
+                  </div>
                   <p className="Username">
                       {this.props.user === ""? 'Sign in' : "Welcome, " + this.props.user}
                   </p>

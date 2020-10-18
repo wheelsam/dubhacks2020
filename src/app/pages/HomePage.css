@@ -11,6 +11,10 @@
     align-self: center;
 }
 
+.AddButton {
+    margin-right: auto;
+}
+
 .Logo {
     margin: 15px 15px;
     height: 44px;

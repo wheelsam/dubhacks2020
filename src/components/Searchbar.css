@@ -1,7 +1,7 @@
 .search {
   width: 70%;
   justify-content: center;
-  margin-right: auto;
+  margin-right: 0;
 }
 
 .MuiFormControl-root {
