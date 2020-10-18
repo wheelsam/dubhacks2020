@@ -1,5 +1,6 @@
 .Header {
     display: flex;
+    margin-bottom: 20px;
     background-color: #dedede;
     opacity: .75;
     height: 74px;

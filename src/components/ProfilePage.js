@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import './ProfilePage.css';
 
 class ProfilePage extends Component {
     constructor(props) {
@@ -47,24 +48,28 @@ class ProfilePage extends Component {
 
     render() {
         return (
-            <div>
+            <div className="profilePage">
                 <p>
                     Welcome to un.bored
+                </p>
+                <p className="Signin">
+                    Sign In
                 </p>
                 <TextField id="Username"
                            label="Username"
                            variant="outlined"
-                           fullWidth
+                           className="Username"
                            margin={"normal"}
                            value={this.state.Username}
                            error={this.state.UsernameError}
                            helperText={this.state.UsernameErrorText}
                            onChange={this.handleUsernameChange}
                 />
-                <Button variant="contained" onClick={this.handleSubmitButton}>Submit</Button>
+                <br />
                 <Link to="/">
-                    <Button variant="contained" color="secondary">Back</Button>
+                    <Button variant="contained" className="butt" color="secondary">Back</Button>
                 </Link>
+                <Button variant="contained" className="butt" onClick={this.handleSubmitButton}>Submit</Button>
             </div>
         );
     }
