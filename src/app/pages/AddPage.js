@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
+import { StylesProvider } from "@material-ui/core/styles";
 import firebase from "../../components/Firebase/firebase.js"
 import Chip from '@material-ui/core/Chip';
 import "./AddPage.css";
@@ -185,8 +186,9 @@ class AddPage extends Component {
             )
         }
         return (
+          <StylesProvider injectFirst>
             <div>
-                <form className={'search'} noValidate autoComplete="off">
+                <form id={'addForm'} className={'search'} noValidate autoComplete="off">
                     <TextField id="Title"
                                label="Title"
                                variant="outlined"
@@ -235,11 +237,12 @@ class AddPage extends Component {
                         ))}
                     </TextField>
                 </form>
-                <Button variant="contained" onClick={this.handleSubmitButton}>Submit</Button>
+                <Button variant="contained" id="addButtons" onClick={this.handleSubmitButton}>Submit</Button>
                 <Link to="/">
                     <Button variant="contained" color="primary">Back</Button>
                 </Link>
             </div>
+          </ StylesProvider>
         )
     }
 

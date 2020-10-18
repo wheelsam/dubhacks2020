@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     maxHeight: 300,
     minHeight: 300,
     margin: 10,
-    overflow: "auto"
+    overflow: 'hidden',
   },
   media: {
     height: 140,
