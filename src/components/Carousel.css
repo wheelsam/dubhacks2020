@@ -1,0 +1,11 @@
+.Title {
+    font-size: 5vw;
+    margin: 5px 0;
+}
+
+.Body {
+    display: flex;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    background-color: rgba(0, 255, 0, 0.3);
+}

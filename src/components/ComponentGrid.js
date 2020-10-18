@@ -3,7 +3,7 @@ import './ComponentGrid.css';
 
 class ComponentGrid extends Component {
     render() {
-        var listOfCarousels = [];
+        const listOfCarousels = [];
         for (let i = 0; i < this.props.carousels.length; i++) {
             listOfCarousels[i] = (
                 <div className={"Carousel"}>
