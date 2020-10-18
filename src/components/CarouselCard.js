@@ -11,7 +11,10 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     minWidth: 345,
-    margin: 10
+    maxHeight: 300,
+    minHeight: 300,
+    margin: 10,
+    overflow: "auto"
   },
   media: {
     height: 140,
