@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from '@material-ui/core/Button';
+import {Link} from "react-router-dom";
 
 let categories = [
     {
@@ -87,7 +88,7 @@ class AddPage extends Component {
     };
 
     handleBackButton = () => {
-        
+
     };
 
     //Title
@@ -140,14 +141,16 @@ class AddPage extends Component {
                                onChange={this.handleCategoryChange}
                     >
                         {categories.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                        </MenuItem>
-                    ))}
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
                     </TextField>
                 </form>
                 <Button variant="contained" onClick={this.handleSubmitButton}>Submit</Button>
-                <Button variant="contained" color="secondary">Back</Button>
+                <Link to="/">
+                    <Button variant="contained" color="secondary">Back</Button>
+                </Link>
             </div>
         )
     }
