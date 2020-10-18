@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-import {Category} from "@material-ui/icons";
+import Button from '@material-ui/core/Button';
 
 let categories = [
     {
@@ -22,7 +22,12 @@ class AddPage extends Component {
             Title: "",
             Description: "",
             ImageUrl: "",
-            Category: ""
+            Category: "",
+
+            TitleError: false,
+            DescriptionError: false,
+            ImageUrlError: false,
+            CategoryError: false
         }
     }
 
@@ -50,6 +55,41 @@ class AddPage extends Component {
         })
     };
 
+    handleSubmitButton = () => {
+        let good = true;
+        if (this.state.Title === "") {
+            this.setState({
+                TitleError: true
+            })
+            good = false;
+        }
+        if (this.state.Description === "") {
+            this.setState({
+                DescriptionError: true
+            });
+            good = false;
+        }
+        if (this.state.ImageUrl === "") {
+            this.setState({
+                ImageUrlError: true
+            });
+            good = false;
+        }
+        if (this.state.Category === "") {
+            this.setState({
+                CategoryError: true
+            });
+            good = false;
+        }
+        if (good === true) {
+            //submit form to backend
+        }
+    };
+
+    handleBackButton = () => {
+        
+    };
+
     //Title
     //Image
     //Description
@@ -64,6 +104,8 @@ class AddPage extends Component {
                                fullWidth
                                margin={"normal"}
                                value={this.state.Title}
+                               error={this.state.TitleError}
+                               helperText={"Must enter title"}
                                onChange={this.handleTitleChange}
                     />
                     <TextField id="Description"
@@ -72,6 +114,8 @@ class AddPage extends Component {
                                fullWidth
                                margin={"normal"}
                                value={this.state.Description}
+                               error={this.state.DescriptionError}
+                               helperText={"Must enter description"}
                                onChange={this.handleDescriptionChange}
                     />
                     <TextField id="image"
@@ -80,6 +124,8 @@ class AddPage extends Component {
                                fullWidth
                                margin={"normal"}
                                value={this.state.ImageUrl}
+                               error={this.state.ImageUrlError}
+                               helperText={"Must enter image url"}
                                onChange={this.handleImageChange}
                     />
                     <TextField id="categories" xzaq
@@ -89,6 +135,8 @@ class AddPage extends Component {
                                select
                                margin={"normal"}
                                value={this.state.Category}
+                               error={this.state.CategoryError}
+                               helperText={"Must choose category"}
                                onChange={this.handleCategoryChange}
                     >
                         {categories.map((option) => (
@@ -98,6 +146,8 @@ class AddPage extends Component {
                     ))}
                     </TextField>
                 </form>
+                <Button variant="contained" onClick={this.handleSubmitButton}>Submit</Button>
+                <Button variant="contained" color="secondary">Back</Button>
             </div>
         )
     }
