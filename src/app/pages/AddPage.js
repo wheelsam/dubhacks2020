@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
 import {Link} from "react-router-dom";
 import { StylesProvider } from "@material-ui/core/styles";
 import firebase from "../../components/Firebase/firebase.js"
@@ -171,7 +172,7 @@ class AddPage extends Component {
 
     removeCat = (category) => {
         let cat = this.state.Categories;
-        delete cat[category];
+        cat.splice(category, 1);
         this.setState({
             Categories: cat
         });
@@ -179,9 +180,14 @@ class AddPage extends Component {
 
     render() {
         let categoryList = [];
+        console.log(this.state.Categories.length);
         for (let i =  0; i < this.state.Categories.length; i++) {
             categoryList.push(
-                <div onClick={() => this.removeCat(i)}>{this.state.Categories[i]}</div>
+                <Chip
+                  label={this.state.Categories[i]}
+                  className={"chip"}
+                  onDelete={() => {this.removeCat(i)}}
+                />
             )
         }
         return (
