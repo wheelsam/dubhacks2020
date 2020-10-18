@@ -56,12 +56,10 @@ class HomePage extends Component {
     };
 
     render() {
-
       var dict = {};
-
       this.state.cards.forEach(card => {
         if (card.categories) {
-          card.categories.forEach(function (item, index) {
+          card.categories.forEach(function (item) {
             if (!(item in dict)) {
               dict[item] = [];
             }
@@ -79,21 +77,51 @@ class HomePage extends Component {
       });
 
       const carousels = [];
-
       for (let category in dict) {
-          carousels.push(<Carousel key={category} title={category.charAt(0).toUpperCase() + category.slice(1)} cards={dict[category]}/>);
+          if (category.toLowerCase().startsWith(this.state.searchString.toLowerCase())) {
+              carousels.push(<Carousel key={category} title={category.charAt(0).toUpperCase() + category.slice(1)} cards={dict[category]}/>);
+          }
+      }
+
+      let display = [];
+      if (carousels.length === 0) {
+          if (this.state.searchString === "") {
+              display.push(
+                  <div>
+                      <p className={"Title"}>
+                          Loading Activities ...
+                      </p>
+                  </div>
+              )
+          } else {
+              display.push(
+                  <div>
+                      <p className={"Title"}>
+                          No Category found for {this.state.searchString}
+                      </p>
+                  </div>
+              )
+          }
+      } else {
+          display.push(
+              <ComponentGrid carousels={carousels}/>
+          );
       }
       return (
           <div>
               <div className={"Header"}>
                   <img className={"Logo"} src={logo} alt="Logo" />
                   <Searchbar onChange={this.updateSearch}/>
+                  <Link to="/add">
+                      <AddButton />
+                  </Link>
                   <Profile user={UserData.username}/>
               </div>
-              <ComponentGrid carousels={carousels}/>
-              <Link to="/add">
-                  <AddButton />
-              </Link>
+            <div className={"MainBody"}>
+                <div className={"ScrollBody"}>
+                    {display}
+                </div>
+            </div>
           </div>
       );
     }

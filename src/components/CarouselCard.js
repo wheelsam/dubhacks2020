@@ -13,15 +13,14 @@ const useStyles = makeStyles({
     minWidth: 345,
     maxHeight: 300,
     minHeight: 300,
-    margin: 10,
-    overflow: "auto"
+    margin: 10
   },
   media: {
     height: 140,
   },
 });
 
-export default function CarouselCard(props, match) {
+export default function CarouselCard(props) {
   const classes = useStyles();
   const {title, description, img, id} = props;
 

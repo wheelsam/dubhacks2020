@@ -3,6 +3,23 @@
     background-color: #dedede;
     opacity: .75;
     height: 74px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.MainBody {
+    position: fixed;
+    margin-top: 74px;
+    height: 90%;
+    width: 100%;
+}
+
+.ScrollBody {
+    display: flex;
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow: scroll;
 }
 
 .Logo {
