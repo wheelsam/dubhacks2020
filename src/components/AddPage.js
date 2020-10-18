@@ -28,7 +28,12 @@ class AddPage extends Component {
             TitleError: false,
             DescriptionError: false,
             ImageUrlError: false,
-            CategoryError: false
+            CategoryError: false,
+
+            TitleErrorText: "",
+            DescriptionErrorText: "",
+            ImageUrlErrorText: "",
+            CategoryErrorText: ""
         }
     }
 
@@ -60,25 +65,29 @@ class AddPage extends Component {
         let good = true;
         if (this.state.Title === "") {
             this.setState({
-                TitleError: true
+                TitleError: true,
+                TitleErrorText: "You must enter a title"
             })
             good = false;
         }
         if (this.state.Description === "") {
             this.setState({
-                DescriptionError: true
+                DescriptionError: true,
+                DescriptionErrorText: "You must enter a description"
             });
             good = false;
         }
         if (this.state.ImageUrl === "") {
             this.setState({
-                ImageUrlError: true
+                ImageUrlError: true,
+                ImageUrlErrorText: "You must enter an image URL"
             });
             good = false;
         }
         if (this.state.Category === "") {
             this.setState({
-                CategoryError: true
+                CategoryError: true,
+                CategoryErrorText: "You must select a category"
             });
             good = false;
         }
@@ -106,7 +115,7 @@ class AddPage extends Component {
                                margin={"normal"}
                                value={this.state.Title}
                                error={this.state.TitleError}
-                               helperText={"Must enter title"}
+                               helperText={this.state.TitleErrorText}
                                onChange={this.handleTitleChange}
                     />
                     <TextField id="Description"
@@ -116,7 +125,7 @@ class AddPage extends Component {
                                margin={"normal"}
                                value={this.state.Description}
                                error={this.state.DescriptionError}
-                               helperText={"Must enter description"}
+                               helperText={this.state.DescriptionErrorText}
                                onChange={this.handleDescriptionChange}
                     />
                     <TextField id="image"
@@ -126,7 +135,7 @@ class AddPage extends Component {
                                margin={"normal"}
                                value={this.state.ImageUrl}
                                error={this.state.ImageUrlError}
-                               helperText={"Must enter image url"}
+                               helperText={this.state.ImageUrlErrorText}
                                onChange={this.handleImageChange}
                     />
                     <TextField id="categories" xzaq
@@ -137,7 +146,7 @@ class AddPage extends Component {
                                margin={"normal"}
                                value={this.state.Category}
                                error={this.state.CategoryError}
-                               helperText={"Must choose category"}
+                               helperText={this.state.CategoryErrorText}
                                onChange={this.handleCategoryChange}
                     >
                         {categories.map((option) => (
