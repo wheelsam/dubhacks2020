@@ -1,0 +1,21 @@
+.profilePage {
+   margin: 15px;
+   font-size: 50px;
+   font-family: 'Roboto';
+   text-align: center;
+}
+
+.UsernameBox {
+    width: 50%;
+    margin-bottom: 25px;
+    transform: translate(14px, 10px) scale(1) !important;
+}
+
+.Signin {
+  margin: 10px;
+  font-size: 40px;
+}
+
+.butt {
+    margin: 15px !important;
+}
