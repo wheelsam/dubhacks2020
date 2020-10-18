@@ -71,9 +71,9 @@ class ProfilePage extends Component {
                 />
                 <br />
                 <Link to="/">
-                    <Button variant="contained" className="butt" color="secondary">Back</Button>
+                    <Button variant="contained" className="butt">Back</Button>
                 </Link>
-                <Button variant="contained" className="butt" onClick={this.handleSubmitButton}>Submit</Button>
+                <Button variant="contained" className="butt" color="primary" onClick={this.handleSubmitButton}>Submit</Button>
             </div>
         );
     }

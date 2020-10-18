@@ -259,9 +259,9 @@ class AddPage extends Component {
                     </TextField>
                 </form>
                 <Link to="/">
-                    <Button variant="contained" color="primary">Back</Button>
+                    <Button id="addButtons" variant="contained">Back</Button>
                 </Link>
-                <Button variant="contained" id="addButtons" onClick={this.handleSubmitButton}>Submit</Button>
+                <Button variant="contained" id="addButtons"  color="primary" onClick={this.handleSubmitButton}>Submit</Button>
             </div>
           </ StylesProvider>
         )
