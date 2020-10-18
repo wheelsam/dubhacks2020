@@ -9,7 +9,6 @@ import Searchbar from "../../components/Searchbar";
 import Carousel from "../../components/Carousel";
 import AddButton from "../../components/AddButton";
 import { Route } from "react-router-dom";
-import TaskPage from './TaskPage.js';
 
 
 
