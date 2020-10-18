@@ -8,7 +8,7 @@ import './HomePage.css';
 import Searchbar from "../../components/Searchbar";
 import Carousel from "../../components/Carousel";
 import AddButton from "../../components/AddButton";
-import { Route } from "react-router-dom";
+//import { Route } from "react-router-dom";
 import {Link} from "react-router-dom";
 
 
@@ -31,7 +31,7 @@ class HomePage extends Component {
     render() {
 
       const craftCards = [];
-      for (let i = 1; i < 11; i++) {
+      for (let i = 10; i < 20; i++) {
           craftCards.push(
               <CarouselCard
                   title="Crochet"
@@ -43,7 +43,7 @@ class HomePage extends Component {
       }
 
       const hikeCards = [];
-      for (let i = 1; i < 11; i++) {
+      for (let i = 0; i < 10; i++) {
           hikeCards.push(
               <div>
                   <CarouselCard
