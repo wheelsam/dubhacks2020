@@ -65,12 +65,6 @@ class HomePage extends Component {
                     <Searchbar onChange={this.updateSearch}/>
                     <Profile/>
                 </div>
-                <CarouselCard
-                    title="Hiking"
-                    description="Mount Si: Washington State, 8 miled round trip hike with steep elevation gain.  Intermediate hike"
-                    img={hike}
-                    id={1}
-                />
                 <ComponentGrid carousels={carousels}/>
                 <Link to="/add">
                     <AddButton />

@@ -2,15 +2,6 @@
     width: 90vw;
 }
 
-.searchbarsearchbar {
+#searchbar {
     outline: none;
-    border-radius: 50px !important;
-}
-
-.TextField {
-    outline: black 1px solid
-}
-
-.MuiTextField {
-    border-radius: 50px !important;
 }
