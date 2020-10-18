@@ -1,3 +1,7 @@
+body {
+    padding: 15px;
+}
+
 #categories {
     display: flex;
 }

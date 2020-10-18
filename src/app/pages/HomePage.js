@@ -10,6 +10,7 @@ import AddButton from "../../components/AddButton";
 import {Link} from "react-router-dom";
 import UserData from "../../data/User.json"
 import firebase from "../../components/Firebase/firebase.js"
+import logo from '../../images/logo.jpg'
 
 
 
@@ -62,10 +63,10 @@ class HomePage extends Component {
       this.state.cards.forEach(card => {
         if (card.categories) {
           card.categories.forEach(function (item, index) {
-            if (!(item in dict)) {
-              dict[item] = [];
+            if (!(item.toLowerCase() in dict)) {
+              dict[item.toLowerCase()] = [];
             }
-            dict[item].push(
+            dict[item.toLowerCase()].push(
               <CarouselCard
                   title={card.title}
                   description={card.description}
@@ -86,6 +87,7 @@ class HomePage extends Component {
       return (
           <div>
               <div className={"Header"}>
+                  <img className={"Logo"} src={logo} alt="Logo" />
                   <Searchbar onChange={this.updateSearch}/>
                   <Profile user={UserData.username}/>
               </div>
