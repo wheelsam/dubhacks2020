@@ -45,19 +45,12 @@ class App extends Component {
         super(props);
         this.state = {
             searchString: "",
-            add: false
         }
     }
 
     updateSearch = (value) => {
         this.setState({
             searchString: value
-        });
-    };
-
-    addContent = () => {
-        this.setState({
-            add: true
         });
     };
 
