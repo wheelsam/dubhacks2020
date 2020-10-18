@@ -1,7 +1,21 @@
 .search {
-    width: 90vw;
+  width: 80%;
+  justify-content: center;
+  margin-left: 1vw;
 }
 
-#searchbar {
-    outline: none;
+.MuiFormControl-root {
+  margin-bottom: 16px;
+  border-radius: 50px;
+  border-width: 2px;
+  background-color: WHITE;
+}
+
+.MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: translate(20px, -6px) scale(0.75);
+}
+
+.MuiOutlinedInput-root {
+  border-radius: 50px;
+  background-color: WHITE;
 }

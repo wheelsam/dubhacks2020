@@ -4,15 +4,16 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "@material-ui/styles": "latest",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "material-ui-search-bar": "^1.0.0",
+    "prop-types": "latest",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "prop-types": "latest",
-    "@material-ui/styles": "latest"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
