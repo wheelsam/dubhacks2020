@@ -1,11 +1,10 @@
 .search {
-    width: 80%;
+    width: 90vw;
     justify-content: center;
-    outline: black 1px solid;
-    display: flex;
+    margin-left: 1vw;
 }
 
 #searchbar {
-    width: max-content;
-    align-self: center;
+    background-color: rgba(255, 0, 0, 0.1);
+    outline: none;
 }
