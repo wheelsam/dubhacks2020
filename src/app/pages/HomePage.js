@@ -12,6 +12,7 @@ import AddButton from "../../components/AddButton";
 import {Link} from "react-router-dom";
 import UserData from "../../data/User.json"
 import ActivitiesData from "../../data/ActivitiesData.json"
+import firebase from "../../components/Firebase/firebase.js"
 
 
 
@@ -19,10 +20,35 @@ class HomePage extends Component {
 
     constructor(props) {
         super(props);
+        this.ref = firebase.firestore().collection('activities');
+        this.unsubscribe = null;
         this.state = {
             searchString: "",
+            cards: []
         }
     }
+
+    onCollectionUpdate = (querySnapshot) => {
+      const cards = [];
+      querySnapshot.forEach((doc) => {
+        const { title, description, category } = doc.data();
+        cards.push({
+          key: doc.id,
+          doc, // DocumentSnapshot
+          title,
+          description,
+          author,
+        });
+      });
+      this.setState({
+        cards
+     });
+    }
+
+    componentDidMount() {
+      this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    }
+
 
     updateSearch = (value) => {
         this.setState({
