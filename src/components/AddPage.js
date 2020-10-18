@@ -8,12 +8,16 @@ import "./AddPage.css";
 
 let categories = [
     {
-        value: "Cat1",
-        label: "Category1"
+        value: "Hiking",
+        label: "Hiking"
     },
     {
-        value: "Cat2",
-        label: "Category2"
+        value: "Crafts",
+        label: "Crafts"
+    },
+    {
+        value: "Sports",
+        label: "Sports"
     }
 ];
 

@@ -21,7 +21,8 @@ class HomePage extends Component {
         this.unsubscribe = null;
         this.state = {
             searchString: "",
-            cards: []
+            cards: [],
+            categories: ""
         }
     }
 
