@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import CarouselCard from '../../components/CarouselCard.js';
 import ComponentGrid from "../../components/ComponentGrid";
 import Profile from "../../components/Profile"
-//import hike from '../../images/hike.jpg';
-import crochet from '../../images/crochet.jpg'
 import './HomePage.css';
 import Searchbar from "../../components/Searchbar";
 import Carousel from "../../components/Carousel";
@@ -33,21 +31,29 @@ class HomePage extends Component {
     render() {
       let activities = ActivitiesData.activities;
 
-      const craftCards = [];
-      for (let i = 10; i < 20; i++) {
-          craftCards.push(
-              <CarouselCard
-                  title="Crochet"
-                  description="Crochet Stuff"
-                  img={crochet}
-                  id={i}
-              />
-          );
-      }
+        //Crafts carousel
+        const craftCards = [];
+        let id = 0;
+        for (let i = 0; i < 10; i++) {
+            let thisActivity = activities[id];
+            while(!thisActivity.categories.includes("crafts")) {
+                id++;
+                thisActivity = activities[id];
+            }
+            craftCards.push(
+                <CarouselCard
+                    title = {thisActivity.title}
+                    description={thisActivity.description}
+                    img={thisActivity.imageurl}
+                    id={id}
+                />
+            );
+            id++;
+        }
 
       //Hiking carousel
       const hikeCards = [];
-      let id = 0;
+      id = 0;
       for (let i = 0; i < 10; i++) {
           let thisActivity = activities[id];
           while(!thisActivity.categories.includes("hiking")) {

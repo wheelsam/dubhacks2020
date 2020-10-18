@@ -1,21 +1,7 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField'
-import { withStyles } from '@material-ui/styles';
+import { StylesProvider } from "@material-ui/core/styles";
 import './Searchbar.css'
-
-
-const styles = theme => ({
-  searchBox: {
-    width: '80%',
-    justifyContent: 'center',
-    marginLeft: '1vw',
-  },
-  search: {
-    marginBottom: '16px',
-    borderRadius: '50px',
-    backgroundColor: 'WHITE',
-  },
-});
 
 
 class Searchbar extends Component {
@@ -31,22 +17,22 @@ class Searchbar extends Component {
     };
 
     render() {
-        const { classes } = this.props;
         return (
-            <form className={classes.searchBox} noValidate autoComplete="off">
-                <TextField id="searchbar"
-                           className={classes.search}
-                           label="Search"
-                           variant="outlined"
-                           fullWidth
-                           margin={"normal"}
-                           value={this.state.value}
-                           onChange={this.handleChange}
-                />
-            </form>
+            <StylesProvider injectFirst>
+              <form className={"search"} noValidate autoComplete="off">
+                  <TextField id="searchbar"
+                             label="Search"
+                             variant="outlined"
+                             fullWidth
+                             margin={"normal"}
+                             value={this.state.value}
+                             onChange={this.handleChange}
+                  />
+              </form>
+            </ StylesProvider>
         )
     }
 }
 
 
-export default withStyles(styles, { withTheme: true })(Searchbar);
+export default Searchbar;
