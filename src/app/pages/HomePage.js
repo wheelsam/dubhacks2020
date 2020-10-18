@@ -61,10 +61,11 @@ class HomePage extends Component {
       this.state.cards.forEach(card => {
         if (card.categories) {
           card.categories.forEach(function (item) {
-            if (!(item in dict)) {
-              dict[item] = [];
+            let lowerItem = item.toLowerCase();
+            if (!(lowerItem in dict)) {
+              dict[lowerItem] = [];
             }
-            dict[item.toLowerCase()].push(
+            dict[lowerItem].push(
               <CarouselCard
                   title={card.title}
                   description={card.description}
@@ -118,11 +119,9 @@ class HomePage extends Component {
                   </Link>
                   <Profile user={UserData.username}/>
               </div>
-            <div className={"MainBody"}>
-                <div className={"ScrollBody"}>
-                    {display}
-                </div>
-            </div>
+              <div className={"ScrollBody"}>
+                  {display}
+              </div>
           </div>
       );
     }
