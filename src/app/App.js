@@ -4,6 +4,7 @@ import TaskPageHandler from "./pages/TaskPageHandler.js";
 import HomePage from "./pages/HomePage.js";
 import NotFound from "./pages/NotFound.js";
 import AddPage from "../components/AddPage";
+import './App.css'
 
 // App.js
 class App extends Component {

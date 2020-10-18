@@ -1,10 +1,11 @@
 .Title {
-    font-size: 5vw;
-    margin: 5px 0;
+    font-size: 6vh;
+    margin: 20px 20px;
 }
 
 .Body {
     display: flex;
+    padding: 10px 10px;
     scroll-behavior: smooth;
     overflow-x: auto;
     background-color: rgba(0, 255, 0, 0.3);
