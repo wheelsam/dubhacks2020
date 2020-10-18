@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import logo from "../../images/logo.jpg";
 
 const TaskPage = (props) => {
+    // creates a simple page to display all the data
   return (
     <div className="Overall">
         <div className="Header">
@@ -24,6 +25,6 @@ const TaskPage = (props) => {
       <img className="Image" src={props.imageurl} alt={props.title}/>
     </div>
   );
-}
+};
 
 export default TaskPage

@@ -27,6 +27,7 @@ class HomePage extends Component {
         }
     }
 
+    // Checks when the database updates and updates the page accordingly
     onCollectionUpdate = (querySnapshot) => {
       const cards = [];
       querySnapshot.forEach((doc) => {
@@ -43,13 +44,14 @@ class HomePage extends Component {
       this.setState({
         cards
      });
-    }
+    };
 
     componentDidMount() {
       this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
 
 
+    // Updates the search box
     updateSearch = (value) => {
         this.setState({
             searchString: value
@@ -78,6 +80,7 @@ class HomePage extends Component {
         }
       });
 
+      // Creates a carousel for each category found
       const carousels = [];
       for (let category in dict) {
           if (category.toLowerCase().startsWith(this.state.searchString.toLowerCase())) {
@@ -85,6 +88,7 @@ class HomePage extends Component {
           }
       }
 
+      // Checks to see how many activities have loaded or have been searched for
       let display = [];
       if (carousels.length === 0) {
           if (this.state.searchString === "") {

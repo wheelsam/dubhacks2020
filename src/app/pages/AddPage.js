@@ -8,6 +8,7 @@ import { StylesProvider } from "@material-ui/core/styles";
 import firebase from "../../components/Firebase/firebase.js"
 import "./AddPage.css";
 
+// Lists all the categories to select from
 let categories = [
     {
         value: "Hiking"
@@ -49,16 +50,19 @@ class AddPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            // The data from inside the forms
             Title: "",
             Description: "",
             ImageUrl: "",
             Categories: [],
 
+            // Keeps track of which forms are invalid
             TitleError: false,
             DescriptionError: false,
             ImageUrlError: false,
             CategoryError: false,
 
+            // Error text to be displayed when from is invalid
             TitleErrorText: "",
             DescriptionErrorText: "",
             ImageUrlErrorText: "",
@@ -67,24 +71,28 @@ class AddPage extends Component {
         this.ref = firebase.firestore().collection('activities');
     }
 
+    // Runs when title text box is updated
     handleTitleChange = (event) => {
         this.setState({
             Title: event.target.value
         })
     };
 
+    // Runs when description textbox is updated
     handleDescriptionChange = (event) => {
         this.setState({
             Description: event.target.value
         })
     };
 
+    // Runs when the image url box is updated
     handleImageChange = (event) => {
         this.setState({
             ImageUrl: event.target.value
         })
     };
 
+    // Runs when a category is selected
     handleCategoryChange = (event) => {
         let cats = this.state.Categories;
         if (!cats.includes(event.target.value)) {
@@ -95,8 +103,11 @@ class AddPage extends Component {
         }
     };
 
+    // Runs when the submit button is pressed
     handleSubmitButton = () => {
         let good = true;
+
+        // Makes sure all forms have some input
         if (this.state.Title === "") {
             this.setState({
                 TitleError: true,
@@ -149,7 +160,9 @@ class AddPage extends Component {
         const description = this.state.Description;
         const imageurl = this.state.ImageUrl;
         const categories = this.state.Categories;
+        // Makes sure no form was invalid
         if (good === true) {
+            // Sends data to database
             this.ref.add({
                 title,
                 description,
@@ -162,6 +175,7 @@ class AddPage extends Component {
                     ImageUrl: '',
                     Categories: []
                 });
+                // Returns to home page
                 this.props.history.push("/")
             })
                 .catch((error) => {
@@ -170,6 +184,7 @@ class AddPage extends Component {
         }
     };
 
+    // Removes a category when the x is clicked
     removeCat = (category) => {
         let cat = this.state.Categories;
         cat.splice(category, 1);
@@ -179,6 +194,7 @@ class AddPage extends Component {
     };
 
     render() {
+        // Creates the categories chips when a category is selected
         let categoryList = [];
         for (let i =  0; i < this.state.Categories.length; i++) {
             categoryList.push(
@@ -189,6 +205,7 @@ class AddPage extends Component {
                 />
             )
         }
+        //Each of the text forms
         return (
           <StylesProvider injectFirst>
             <div>
