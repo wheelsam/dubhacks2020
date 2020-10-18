@@ -22,7 +22,8 @@ class HomePage extends Component {
         this.unsubscribe = null;
         this.state = {
             searchString: "",
-            cards: []
+            cards: [],
+            categories: ""
         }
     }
 
@@ -63,7 +64,7 @@ class HomePage extends Component {
             if (!(item in dict)) {
               dict[item] = [];
             }
-            dict[item].push(
+            dict[item.toLowerCase()].push(
               <CarouselCard
                   title={card.title}
                   description={card.description}

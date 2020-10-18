@@ -3,18 +3,42 @@ import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
-import firebase from "./Firebase/firebase.js";
+import { StylesProvider } from "@material-ui/core/styles";
+import firebase from "../../components/Firebase/firebase.js"
 import "./AddPage.css";
 
 let categories = [
     {
-        value: "Cat1",
-        label: "Category1"
+        value: "Hiking"
     },
     {
-        value: "Cat2",
-        label: "Category2"
+        value: "Crafts"
+    },
+    {
+        value: "Sports"
+    },
+    {
+        value: "Outdoors"
+    },
+    {
+        value: "Social distance"
+    },
+    {
+        value: "Gaming"
+    },
+    {
+        value: "Cooking"
+    },
+    {
+        value: "Learning"
+    },
+    {
+        value: "Reading"
+    },
+    {
+        value: "Movies"
     }
+
 ];
 
 
@@ -161,8 +185,9 @@ class AddPage extends Component {
             )
         }
         return (
+          <StylesProvider injectFirst>
             <div>
-                <form className={'search'} noValidate autoComplete="off">
+                <form id={'addForm'} className={'search'} noValidate autoComplete="off">
                     <TextField id="Title"
                                label="Title"
                                variant="outlined"
@@ -206,16 +231,17 @@ class AddPage extends Component {
                     >
                         {categories.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
-                                {option.label}
+                                {option.value}
                             </MenuItem>
                         ))}
                     </TextField>
                 </form>
-                <Button variant="contained" onClick={this.handleSubmitButton}>Submit</Button>
+                <Button variant="contained" id="addButtons" onClick={this.handleSubmitButton}>Submit</Button>
                 <Link to="/">
                     <Button variant="contained" color="primary">Back</Button>
                 </Link>
             </div>
+          </ StylesProvider>
         )
     }
 

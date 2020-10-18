@@ -1,0 +1,15 @@
+#addForm{
+  padding: 20px;
+}
+
+#addButtons{
+  margin: 20px;
+}
+
+#categories {
+    display: flex;
+}
+
+.MuiInputLabel-outlined {
+  transform: translate(14px, 15px) scale(1);
+}
