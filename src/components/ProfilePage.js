@@ -62,7 +62,7 @@ class ProfilePage extends Component {
                 <TextField id="Username"
                            label="Username"
                            variant="outlined"
-                           className="Username"
+                           className="UsernameBox"
                            margin={"normal"}
                            value={this.state.Username}
                            error={this.state.UsernameError}
