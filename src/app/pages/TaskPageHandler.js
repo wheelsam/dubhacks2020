@@ -61,7 +61,6 @@ class TaskPageHandler extends React.Component {
                   imageurl={this.state.thisActivity.imageurl}/>
           )
       }
-      console.log({display})
     return (
       <div>
           {display}

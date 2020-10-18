@@ -180,7 +180,6 @@ class AddPage extends Component {
 
     render() {
         let categoryList = [];
-        console.log(this.state.Categories.length);
         for (let i =  0; i < this.state.Categories.length; i++) {
             categoryList.push(
                 <Chip
