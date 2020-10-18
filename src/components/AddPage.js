@@ -174,7 +174,7 @@ class AddPage extends Component {
                 </form>
                 <Button variant="contained" onClick={this.handleSubmitButton}>Submit</Button>
                 <Link to="/">
-                    <Button variant="contained" color="secondary">Back</Button>
+                    <Button variant="contained" color="primary">Back</Button>
                 </Link>
             </div>
         )

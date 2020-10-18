@@ -10,6 +10,8 @@ import Carousel from "../../components/Carousel";
 import AddButton from "../../components/AddButton";
 //import { Route } from "react-router-dom";
 import {Link} from "react-router-dom";
+import UserData from "../../data/User.json"
+import ActivitiesData from "../../data/ActivitiesData.json"
 
 
 
@@ -29,6 +31,7 @@ class HomePage extends Component {
     };
 
     render() {
+      let activities = ActivitiesData.activities;
 
       const craftCards = [];
       for (let i = 10; i < 20; i++) {
@@ -42,18 +45,24 @@ class HomePage extends Component {
           );
       }
 
+      //Hiking carousel
       const hikeCards = [];
+      let id = 0;
       for (let i = 0; i < 10; i++) {
+          let thisActivity = activities[id];
+          while(!thisActivity.categories.includes("hiking")) {
+              id++;
+              thisActivity = activities[id];
+          }
           hikeCards.push(
-              <div>
-                  <CarouselCard
-                      title="Hiking"
-                      description="Mount Si: Washington State, 8 mile round trip hike with steep elevation gain.  Intermediate hike"
-                      img={hike}
-                      id={i}
-                  />
-              </div>
+              <CarouselCard
+                  title = {thisActivity.title}
+                  description={thisActivity.description}
+                  img={thisActivity.imageurl}
+                  id={id}
+              />
           );
+          id++;
       }
 
       const carousels = [];
@@ -63,7 +72,7 @@ class HomePage extends Component {
             <div>
                 <div className={"Header"}>
                     <Searchbar onChange={this.updateSearch}/>
-                    <Profile/>
+                    <Profile user={UserData.username}/>
                 </div>
                 <ComponentGrid carousels={carousels}/>
                 <Link to="/add">
