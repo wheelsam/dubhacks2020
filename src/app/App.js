@@ -4,6 +4,7 @@ import ComponentGrid from "../components/ComponentGrid";
 import hike from '../images/hike.jpg';
 import './App.css';
 import Searchbar from "../components/Searchbar";
+import AddButton from "../components/AddButton";
 
 var aList = [];
 aList[0] = ("Carousel1");
@@ -15,13 +16,20 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchString: ""
+            searchString: "",
+            add: false
         }
     }
 
     updateSearch = (value) => {
         this.setState({
             searchString: value
+        });
+    };
+
+    addContent = () => {
+        this.setState({
+            add: true
         });
     };
 
@@ -36,6 +44,7 @@ class App extends Component {
                     id={1}
                 />
                 <ComponentGrid carousels={aList} hi={"hello"}/>
+                <AddButton />
             </div>
         );
     }

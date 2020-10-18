@@ -5,17 +5,22 @@ import { withStyles } from '@material-ui/styles';
 import './Searchbar.css'
 
 const styles = theme => ({
-    textField: {
-        width: '90%',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        paddingBottom: 0,
-        marginTop: 0,
-        fontWeight: 500
+    root: {
+        padding: '2px 4px',
+        display: 'flex',
+        alignItems: 'center',
+        width: 1000,
     },
     input: {
-        color: 'black'
-    }
+        flex: 1,
+    },
+    iconButton: {
+        padding: 10,
+    },
+    divider: {
+        height: 28,
+        margin: 4,
+    },
 });
 
 
@@ -23,7 +28,6 @@ class Searchbar extends Component {
     constructor(props) {
         super(props);
         this.state = {value: ''};
-
         this.handleChange = this.handleChange.bind(this);
     }
 
