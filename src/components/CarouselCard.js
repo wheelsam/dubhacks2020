@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
+// Creates a style to be applied to the carousel cards
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -21,10 +22,11 @@ const useStyles = makeStyles({
   },
 });
 
+// returns a Carousel Card given:
+// props: title: string, description: string, img: string, id: string
 export default function CarouselCard(props, match) {
   const classes = useStyles();
   const {title, description, img, id} = props;
-
 
   return (
     <div>

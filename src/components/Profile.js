@@ -4,6 +4,8 @@ import profile from '../images/profile.png'
 import './Profile.css'
 
 class Profile extends Component {
+
+    // Renders the profile image and a link to the profile page
     render() {
         return (
             <div>
