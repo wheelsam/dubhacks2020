@@ -1,20 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app/App';
-import TaskPage from './components/TaskPage.js';
-import { BrowserRouter, Route } from "react-router-dom";
+import App from './app/App.js';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Route exact={true} path="/" component={App} />
-    <Route
-      path={`/:id`}
-      render={(props) => (
-        <TaskPage data="de" id={1} />
-      )}
-    />
-  </BrowserRouter>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
