@@ -7,6 +7,7 @@ import crochet from '../images/crochet.jpg'
 import './App.css';
 import Searchbar from "../components/Searchbar";
 import Carousel from "../components/Carousel";
+import AddButton from "../components/AddButton";
 
 const craftCards = [];
 for (let i = 1; i < 11; i++) {
@@ -35,8 +36,6 @@ for (let i = 1; i < 11; i++) {
 const carousels = [];
 carousels.push(<Carousel title={"Hikes"} cards={hikeCards}/>);
 carousels.push(<Carousel title={"Crafts"} cards={craftCards}/>);
-
-import AddButton from "../components/AddButton";
 
 
 
@@ -76,7 +75,6 @@ class App extends Component {
                     id={1}
                 />
                 <ComponentGrid carousels={carousels}/>
-                <ComponentGrid carousels={aList} hi={"hello"}/>
                 <AddButton />
             </div>
         );
