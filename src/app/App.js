@@ -36,19 +36,29 @@ const carousels = [];
 carousels.push(<Carousel title={"Hikes"} cards={hikeCards}/>);
 carousels.push(<Carousel title={"Crafts"} cards={craftCards}/>);
 
+import AddButton from "../components/AddButton";
+
+
 
 class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            searchString: ""
+            searchString: "",
+            add: false
         }
     }
 
     updateSearch = (value) => {
         this.setState({
             searchString: value
+        });
+    };
+
+    addContent = () => {
+        this.setState({
+            add: true
         });
     };
 
@@ -66,6 +76,8 @@ class App extends Component {
                     id={1}
                 />
                 <ComponentGrid carousels={carousels}/>
+                <ComponentGrid carousels={aList} hi={"hello"}/>
+                <AddButton />
             </div>
         );
     }
