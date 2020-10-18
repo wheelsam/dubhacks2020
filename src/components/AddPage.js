@@ -69,6 +69,11 @@ class AddPage extends Component {
                 TitleErrorText: "You must enter a title"
             })
             good = false;
+        } else {
+            this.setState({
+                TitleError: false,
+                TitleErrorText: ""
+            })
         }
         if (this.state.Description === "") {
             this.setState({
@@ -76,6 +81,11 @@ class AddPage extends Component {
                 DescriptionErrorText: "You must enter a description"
             });
             good = false;
+        } else {
+            this.setState({
+                DescriptionError: false,
+                DescriptionErrorText: ""
+            })
         }
         if (this.state.ImageUrl === "") {
             this.setState({
@@ -83,6 +93,11 @@ class AddPage extends Component {
                 ImageUrlErrorText: "You must enter an image URL"
             });
             good = false;
+        } else {
+            this.setState({
+                ImageUrlError: false,
+                ImageUrlErrorText: ""
+            })
         }
         if (this.state.Category === "") {
             this.setState({
@@ -90,6 +105,11 @@ class AddPage extends Component {
                 CategoryErrorText: "You must select a category"
             });
             good = false;
+        } else {
+            this.setState({
+                CategoryError: false,
+                CategoryErrorText: ""
+            })
         }
         if (good === true) {
             //submit form to backend
@@ -100,10 +120,6 @@ class AddPage extends Component {
 
     };
 
-    //Title
-    //Image
-    //Description
-    //Drop down categories
     render() {
         return (
             <div>
