@@ -8,17 +8,36 @@ import "./AddPage.css";
 
 let categories = [
     {
-        value: "Hiking",
-        label: "Hiking"
+        value: "Hiking"
     },
     {
-        value: "Crafts",
-        label: "Crafts"
+        value: "Crafts"
     },
     {
-        value: "Sports",
-        label: "Sports"
+        value: "Sports"
+    },
+    {
+        value: "Outdoors"
+    },
+    {
+        value: "Social distance"
+    },
+    {
+        value: "Gaming"
+    },
+    {
+        value: "Cooking"
+    },
+    {
+        value: "Learning"
+    },
+    {
+        value: "Reading"
+    },
+    {
+        value: "Movies"
     }
+
 ];
 
 
@@ -210,7 +229,7 @@ class AddPage extends Component {
                     >
                         {categories.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
-                                {option.label}
+                                {option.value}
                             </MenuItem>
                         ))}
                     </TextField>
