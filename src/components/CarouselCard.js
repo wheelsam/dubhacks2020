@@ -11,7 +11,10 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     minWidth: 345,
-    margin: 10
+    maxHeight: 300,
+    minHeight: 300,
+    margin: 10,
+    overflow: "auto"
   },
   media: {
     height: 140,
@@ -20,16 +23,8 @@ const useStyles = makeStyles({
 
 export default function CarouselCard(props, match) {
   const classes = useStyles();
-  const {title, description, img, id/*, pageData*/} = props;
+  const {title, description, img, id} = props;
 
-    /* Create an array of `<li>` items for each product */
-  // const linkList = productsData.map((product) => {
-  //   return (
-  //     <li>
-  //       <Link to={`${match.url}/${product.id}`}>{product.name}</Link>
-  //     </li>
-  //   );
-  // });
 
   return (
     <div>
@@ -38,7 +33,7 @@ export default function CarouselCard(props, match) {
           <CardMedia
             className={classes.media}
             image={img}
-            title="Contemplative Reptile"
+            title={title}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">

@@ -6,7 +6,7 @@ class ComponentGrid extends Component {
         const listOfCarousels = [];
         for (let i = 0; i < this.props.carousels.length; i++) {
             listOfCarousels[i] = (
-                <div className={"Carousel"}>
+                <div className={"Carousel"} key={i}>
                     {this.props.carousels[i]}
                 </div>
             );
