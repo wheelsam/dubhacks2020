@@ -1,10 +1,13 @@
 .search {
-    width: 90vw;
+    width: 80%;
     justify-content: center;
     margin-left: 1vw;
 }
 
 #searchbar {
-    background-color: rgba(255, 0, 0, 0.1);
     outline: none;
+}
+
+.MuiOutlinedInput-root {
+    border-radius: 50px !important;
 }

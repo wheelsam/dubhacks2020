@@ -4,14 +4,6 @@ import TextField from '@material-ui/core/TextField'
 //import { withStyles } from '@material-ui/styles';
 import './Searchbar.css'
 
-/*const styles = theme => ({
-    textField: {
-    },
-    input: {
-        color: 'black'
-    }
-});*/
-
 
 class Searchbar extends Component {
     constructor(props) {
@@ -40,10 +32,6 @@ class Searchbar extends Component {
         )
     }
 }
-
-Searchbar.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
 
 export default Searchbar;
