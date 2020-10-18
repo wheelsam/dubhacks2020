@@ -82,7 +82,17 @@ class HomePage extends Component {
 
       // Creates a carousel for each category found
       const carousels = [];
+      //let searchCards = [];
+      //let added = [];
       for (let category in dict) {
+          /*let cards = dict[category];
+          for (let i = 0; i < cards.length; i++) {
+              let title = cards[i].props.title;
+              console.log(cards[i]);
+              if (title.toLowerCase().startsWith(this.state.searchString.toLowerCase())) {
+                  searchCards.push(cards[i]);
+              }
+          }*/
           if (category.toLowerCase().startsWith(this.state.searchString.toLowerCase())) {
               carousels.push(
                 <div>
@@ -92,6 +102,12 @@ class HomePage extends Component {
               );
           }
       }
+      /*carousels.unshift(
+          <div>
+              <hr />
+              <Carousel key={"Search Results"} title={"Search Results"} cards={searchCards}/>
+          </div>
+      );*/
 
       // Checks to see how many activities have loaded or have been searched for
       let display = [];
