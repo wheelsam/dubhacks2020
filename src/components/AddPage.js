@@ -3,6 +3,8 @@ import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
+import firebase from "./Firebase/firebase.js";
+import "./AddPage.css";
 
 let categories = [
     {
@@ -15,7 +17,9 @@ let categories = [
     }
 ];
 
+
 class AddPage extends Component {
+
 
     constructor(props) {
         super(props);
@@ -23,7 +27,7 @@ class AddPage extends Component {
             Title: "",
             Description: "",
             ImageUrl: "",
-            Category: "",
+            Categories: [],
 
             TitleError: false,
             DescriptionError: false,
@@ -34,7 +38,8 @@ class AddPage extends Component {
             DescriptionErrorText: "",
             ImageUrlErrorText: "",
             CategoryErrorText: ""
-        }
+        };
+        this.ref = firebase.firestore().collection('activities');
     }
 
     handleTitleChange = (event) => {
@@ -56,9 +61,13 @@ class AddPage extends Component {
     };
 
     handleCategoryChange = (event) => {
-        this.setState({
-            Category: event.target.value
-        })
+        let cats = this.state.Categories;
+        if (!cats.includes(event.target.value)) {
+            cats.push(event.target.value);
+            this.setState({
+                Categories: cats
+            });
+        }
     };
 
     handleSubmitButton = () => {
@@ -67,13 +76,13 @@ class AddPage extends Component {
             this.setState({
                 TitleError: true,
                 TitleErrorText: "You must enter a title"
-            })
+            });
             good = false;
         } else {
             this.setState({
                 TitleError: false,
                 TitleErrorText: ""
-            })
+            });
         }
         if (this.state.Description === "") {
             this.setState({
@@ -99,10 +108,10 @@ class AddPage extends Component {
                 ImageUrlErrorText: ""
             })
         }
-        if (this.state.Category === "") {
+        if (this.state.Categories === []) {
             this.setState({
                 CategoryError: true,
-                CategoryErrorText: "You must select a category"
+                CategoryErrorText: "You must select at least one category"
             });
             good = false;
         } else {
@@ -111,16 +120,46 @@ class AddPage extends Component {
                 CategoryErrorText: ""
             })
         }
+        const title = this.state.Title;
+        const description = this.state.Description;
+        const imageurl = this.state.ImageUrl;
+        const categories = this.state.Categories;
         if (good === true) {
-            //submit form to backend
+            this.ref.add({
+                title,
+                description,
+                imageurl,
+                categories
+            }).then(() => {
+                this.setState({
+                    Title: '',
+                    Description: '',
+                    ImageUrl: '',
+                    Categories: []
+                });
+                this.props.history.push("/")
+            })
+                .catch((error) => {
+                    console.error("Error adding entry: ", error);
+                });
         }
     };
 
-    handleBackButton = () => {
-
+    removeCat = (category) => {
+        let cat = this.state.Categories;
+        delete cat[category];
+        this.setState({
+            Categories: cat
+        });
     };
 
     render() {
+        let categoryList = [];
+        for (let i =  0; i < this.state.Categories.length; i++) {
+            categoryList.push(
+                <div onClick={() => this.removeCat(i)}>{this.state.Categories[i]}</div>
+            )
+        }
         return (
             <div>
                 <form className={'search'} noValidate autoComplete="off">
@@ -154,13 +193,13 @@ class AddPage extends Component {
                                helperText={this.state.ImageUrlErrorText}
                                onChange={this.handleImageChange}
                     />
-                    <TextField id="categories" xzaq
-                               label="Select Category"
+                    {categoryList}
+                    <TextField label="Add Category"
                                variant="outlined"
                                fullWidth
                                select
                                margin={"normal"}
-                               value={this.state.Category}
+                               value={"Add Category"}
                                error={this.state.CategoryError}
                                helperText={this.state.CategoryErrorText}
                                onChange={this.handleCategoryChange}
